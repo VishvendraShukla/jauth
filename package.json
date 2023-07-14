@@ -1,0 +1,32 @@
+{
+  "name": "jauth",
+  "version": "1.0.0",
+  "description": "Node.js Repository for JWT Authentication and user management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishvendraShukla/jauth.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express.js",
+    "Authentication",
+    "Authorization",
+    "MongoDB"
+  ],
+  "author": "Vishvendra Vijay Shukla, Suraj Kushwaha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VishvendraShukla/jauth/issues"
+  },
+  "homepage": "https://github.com/VishvendraShukla/jauth#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
+  }
+}
