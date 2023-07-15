@@ -11,11 +11,13 @@ router.get("/", (req, res, next) => {
   }
 });
 
-router.post("/:productId", (req, res, next) => {
-  res.status(200).json({
-    id: req.params.productId,
-    message: "It works",
-  });
+router.post("/", (req, res, next) => {
+  const data = {
+    userId: req.body.userId,
+    name: req.body.name,
+    age: req.body.age,
+  };
+  res.success(data);
 });
 
 module.exports = router;

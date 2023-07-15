@@ -9,6 +9,12 @@ const errorHandler = (err, req, res, next) => {
       message: err.message,
     });
   }
+  if (err instanceof SyntaxError) {
+    return res.status(400).json({
+      success: false,
+      message: "Some Error Occured.",
+    });
+  }
 
   res.status(500).json({ error: "Internal Server Error" });
   next(err);
