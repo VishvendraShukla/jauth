@@ -15,6 +15,12 @@ const errorHandler = (err, req, res, next) => {
       message: "Some Error Occured.",
     });
   }
+  if (err.name === "ValidationError") {
+    return res.status(400).json({
+      success: false,
+      message: "Incorrect Data Values",
+    });
+  }
 
   res.status(500).json({ error: "Internal Server Error" });
   next(err);
