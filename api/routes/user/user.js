@@ -2,29 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = require("../../model/user/user");
+const UserController = require("../../controller/userController");
 
-router.get("/", async (req, res, next) => {
-  try {
-    const pageSize = req.query.pageSize || "10";
-    const userList = await User.find().limit(pageSize);
-    res.success(userList);
-  } catch (error) {
-    next(error);
-  }
-});
+router.get("/", UserController.find_users);
 
-router.get("/:userId", async (req, res, next) => {
-  try {
-    const userById = await User.findById(req.params.userId);
-    if (userById) {
-      res.success(userById);
-    } else {
-      res.success({ message: req.params.userId + " Not Found" });
-    }
-  } catch (error) {
-    next(error);
-  }
-});
+router.get("/:userId", UserController.find_user_by_id);
 
 router.post("/", async (req, res, next) => {
   try {

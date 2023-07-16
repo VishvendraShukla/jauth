@@ -2,8 +2,7 @@ const CustomError = require("../../error/CustomError");
 
 const errorHandler = (err, req, res, next) => {
   console.error(err);
-
-  if (err instanceof CustomError) {
+  if (err instanceof CustomError || err instanceof Error) {
     return res.status(err.statusCode).json({
       success: false,
       message: err.message,
