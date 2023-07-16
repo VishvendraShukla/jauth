@@ -12,17 +12,6 @@ const corsHandler = require("./middleware/cors/cors");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("combined"));
-const mongoose = require("mongoose");
-
-const mongoDB = "mongodb://127.0.0.1/jauth";
-
-// Waiting for database to connect, logging an error if there is a problem
-main().catch((err) => console.log(err));
-async function main() {
-  console.log("Connecting Mongo DB at " + mongoDB);
-  await mongoose.connect(mongoDB);
-  console.log("Connected");
-}
 
 app.use(corsHandler);
 app.use(successHandler);
