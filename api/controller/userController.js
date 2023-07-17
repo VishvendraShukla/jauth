@@ -10,7 +10,9 @@ exports.find_users = async (req, res, next) => {
     const skipDocuments = currentPage * pageSize;
     const userList = await User.find().skip(skipDocuments).limit(pageSize);
     const docSize = await User.countDocuments();
-    res.success(new UserResultPage(userList, docSize, currentPage).render());
+    res.success(
+      new UserResultPage.UserResultPage(userList, docSize, currentPage).render()
+    );
   } catch (error) {
     next(error);
   }
@@ -21,7 +23,7 @@ exports.find_user_by_id = async (req, res, next) => {
     const userById = await User.findById(req.params.userId);
     if (userById) {
       res.success(
-        new UserVO(
+        new UserResultPage.UserVO(
           userById.id,
           userById.uniqueIdentifier,
           userById.password,

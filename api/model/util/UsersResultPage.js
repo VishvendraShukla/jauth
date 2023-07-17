@@ -1,4 +1,4 @@
-const UserResultPage = class {
+class UserResultPage {
   constructor(userList, docSize, currentPage) {
     this.currentPage = currentPage;
     this.docSize = docSize;
@@ -28,7 +28,7 @@ const UserResultPage = class {
     };
     return result;
   }
-};
+}
 
 const UserVO = class {
   constructor(id, uniqueIdentifier, password, email, customValues) {
@@ -39,5 +39,7 @@ const UserVO = class {
     this.customValues = customValues;
   }
 };
-module.exports = UserResultPage;
-module.exports = UserVO;
+module.exports = {
+  UserResultPage: UserResultPage,
+  UserVO: UserVO,
+};
